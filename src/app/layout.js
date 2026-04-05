@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Open Court",
-  description: "Seu site de agendamento de quadra",
+  description: "A platform for scheduling and managing court bookings.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
