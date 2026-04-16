@@ -1,1 +1,22 @@
 /*registrando arquivo de css*/
+.container {
+    display: flex;
+}
+
+.containerModal{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    margin: 2rem 20rem 2rem 20rem;
+    border-radius: 0.25rem;
+    padding: 3rem;
+}
+
+.logomarca {
+    width: 25%;
+    height: auto;
+    align-items: center;
+    justify-content: start;
+}
+
