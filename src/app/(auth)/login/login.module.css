@@ -57,17 +57,17 @@
     color: #e7e6e6;
 }
 
+.title {
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
 .subtitle {
     font-size: 0.9rem;
     text-align: left;
     align-self: flex-start;
     margin-bottom: 2rem;
-}
-
-.title {
-    display: flex;
-    font-size: 1.8rem;
-    font-weight: bold;
 }
 
 .form {
@@ -87,6 +87,7 @@
 
 .signupLink {
     text-decoration: none;
+    font-weight: 600;
     color: var(--foreground);
 }
 

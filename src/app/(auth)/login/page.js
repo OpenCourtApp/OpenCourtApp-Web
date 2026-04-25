@@ -63,7 +63,7 @@ export default function LoginScreen() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Button type="submit">Sign In</Button>
+                    <Button type="submit" fullWidth>Enter</Button>
                     <p className={styles.signupText}>Don't have an account?<a href="/register" className={styles.signupLink}>Register Here</a></p>
                 </form>
             </main>

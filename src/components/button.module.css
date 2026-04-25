@@ -1,9 +1,64 @@
 .button {
-    padding: 0.8rem;
-    background-color: #111827;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
+    appearance: none;
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, opacity 160ms ease;
+    width: fit-content;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.primary {
+    background: #111827;
+    color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+    background: #1f2937;
+}
+
+.secondary {
+    background: #ffffff;
+    border-color: var(--border);
+    color: #374151;
+}
+
+.secondary:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.ghost {
+    background: transparent;
+    color: #374151;
+}
+
+.sm {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: var(--radius-sm);
+}
+
+.md {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 13px;
+    border-radius: var(--radius-md);
+}
+
+.lg {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 13px;
+    border-radius: var(--radius-md);
+}
+
+.fullWidth {
+    width: 100%;
 }
