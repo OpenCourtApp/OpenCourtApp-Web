@@ -8,14 +8,23 @@ import { useState, useEffect } from 'react';
 export default function LoginScreen() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({...formData, [name]: value});
+    };
+
     useEffect(() => {
         // Simula um carregamento de autenticação
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
     }, []);
+
     if (isLoading) {
         return (
             <div className={styles.loadingContainer}>
@@ -23,6 +32,7 @@ export default function LoginScreen() {
             </div>
         );
     }
+
     return (
         <div className={styles.container}>
             {/* parte esquerda */}
@@ -50,18 +60,20 @@ export default function LoginScreen() {
                     <p>Email address</p>
                     <input 
                         type="email" 
-                        placeholder="you@school.edu" 
+                        placeholder="you@school.edu"
                         className={styles.input} 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name='email'
+                        value={formData.email}
+                        onChange={handleInputChange}
                     />
                     <p>Password</p>
                     <input 
                         type="password" 
-                        placeholder="••••••••" 
+                        placeholder="Enter your password" 
                         className={styles.input} 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        name='password'
+                        value={formData.password}
+                        onChange={handleInputChange}
                     />
                     <Button type="submit">Sign In</Button>
                     <p className={styles.signupText}>Don't have an account?<a href="/register" className={styles.signupLink}>Register Here</a></p>
