@@ -6,6 +6,7 @@
 .aside {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 3rem;
     width: 50%;
     height: 100vh;
@@ -28,7 +29,6 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    margin-bottom: 9rem;
     gap: 2rem;
 }
 
@@ -52,7 +52,6 @@
     font-size: 0.9rem;
     text-align: left;
     align-self: flex-start;
-    margin-bottom: 6rem;
     width: 65%;
     color: #e7e6e6;
 }
@@ -106,7 +105,6 @@
 .logomarca {
     width: 25%;
     height: auto;
-    margin-bottom: 17rem;
     align-items: center;
     justify-content: start;
 }
