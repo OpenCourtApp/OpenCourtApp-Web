@@ -1,7 +1,7 @@
 .button {
     padding: 0.8rem;
-    background-color: #111827;
-    color: #ffffff;
+    background-color: var(--text);
+    color: var(--card);
     border: none;
     border-radius: 10px;
     cursor: pointer;
