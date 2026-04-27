@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './login.module.css';
-import { Button } from '../../../components/Button';
+import { Button } from '../../../components/Button/Button';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
