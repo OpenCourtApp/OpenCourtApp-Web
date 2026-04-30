@@ -37,7 +37,7 @@ export default function LoginScreen() {
         <div className={styles.container}>
             {/* parte esquerda */}
             <aside className={styles.aside}>
-                <img src="/teste-logomarca.svg" alt="Logomarca" className={styles.logomarca} />
+                <img src="/teste-logomarca-white.svg" alt="Logomarca" className={styles.logomarca} />
                 <div className={styles.ellipse}>
                     <p className={styles.impactPhrase}>Schedule courts. Eliminate confusion.</p>
                     <p className={styles.description}>A centralized booking platform for schools. Know exactly who reserved the court and when — with zero overlap.</p>

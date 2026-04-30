@@ -27,7 +27,7 @@ export function SideBar() {
     return (
         <div className={styles.container}>
             <div className={styles.top}>
-                <img src="/teste-logomarca.svg" alt="Logomarca" className={styles.logomarca} />
+                <img src="/teste-logomarca-black.svg" alt="Logomarca" className={styles.logomarca} />
             </div>
 
             <nav className={styles.middle}>

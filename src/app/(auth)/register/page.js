@@ -22,7 +22,7 @@ export default function RegisterScreen() {
     return (
         <div className={styles.container}>
             <div className={styles.containerModal}>
-                <img src="/teste-logomarca.svg" alt="Logomarca" className={styles.logomarca} />
+                <img src="/teste-logomarca-black.svg" alt="Logomarca" className={styles.logomarca} />
 
                 <h1 className={styles.title}>Create your account</h1>
                 <p className={styles.subtitle}>Fill in your details and authorization token</p>
