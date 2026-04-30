@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+    justify-content: space-evenly;
+    max-width: 100%;
+    width: 280px;
+    height: 100%;
+    border: 1px solid var(--border);
+}
+
+.logomarca {
+    width: 8rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.navItem:hover {
+    background-color: var(--nav-active-bg);
+    color: var(--active-accent);
+}
+
+.active {
+    background-color: var(--nav-active-bg);
+    color: var(--active-accent);
+}
+
+.top {
+    padding: 1.5rem;
+}
+
+.middle {
+    padding: 0 1rem;
+    flex: 1;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    background-color: var(--page);
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 2rem 1rem;
+    cursor: pointer;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--text);
+    color: var(--card);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.userName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.userRole {
+    font-size: 0.775rem;
+    color: var(--secondary-text);
+}
