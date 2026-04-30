@@ -1,1 +1,5 @@
-/*registrando arquivo de css*/
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
