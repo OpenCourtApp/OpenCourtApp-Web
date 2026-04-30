@@ -2,7 +2,7 @@
 
 import styles from './register.module.css';
 import { useRouter } from 'next/navigation';
-import { Button } from '../../../components/Button';
+import { Button } from '../../../components/Button/Button';
 import { Lock } from 'react-feather'
 import { useState } from 'react';
 
