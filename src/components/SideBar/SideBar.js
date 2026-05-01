@@ -3,11 +3,13 @@
 import styles from './sidebar.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Grid, Calendar, Users, ChevronDown } from 'react-feather';
+import { useState } from 'react';
+import { Grid, Calendar, Users, ChevronDown, ChevronUp, User, LogOut, ChevronRight } from 'react-feather';
 
 const user = {
     name: 'Ana Ferreira',
     role: 'Teacher',
+    email: 'a.ferreira@escola.edu',
 };
 
 const navItems = [
@@ -18,6 +20,7 @@ const navItems = [
 
 export function SideBar() {
     const pathname = usePathname();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const initials = user.name.split(' ').map(n => n[0]).join('');
 
@@ -39,15 +42,40 @@ export function SideBar() {
                 ))}
             </nav>
 
-            <div className={styles.footer}>
-                <div className={styles.userInfo}>
-                    <div className={styles.avatar}>{initials}</div>
-                    <div>
-                        <p className={styles.userName}>{user.name}</p>
-                        <p className={styles.userRole}>{user.role}</p>
+            <div className={styles.menuWrapper}>
+                {menuOpen && (
+                    <div className={styles.dropdownMenu}>
+                        <div className={styles.dropdownUser}>
+                            <div className={styles.avatar}>{initials}</div>
+                            <div>
+                                <p className={styles.userName}>{user.name}</p>
+                                <p className={styles.dropdownEmail}>{user.email}</p>
+                            </div>
+                        </div>
+                        <div className={styles.dropdownItem}>
+                            <span className={styles.dropdownItemLeft}>
+                                <User size={15} />
+                                Settings
+                            </span>
+                            <ChevronRight size={14} />
+                        </div>
+                        <div className={styles.dropdownLogout}>
+                            <LogOut size={15} />
+                            Log out
+                        </div>
                     </div>
+                )}
+
+                <div className={styles.footer} onClick={() => setMenuOpen(!menuOpen)}>
+                    <div className={styles.userInfo}>
+                        <div className={styles.avatar}>{initials}</div>
+                        <div>
+                            <p className={styles.userName}>{user.name}</p>
+                            <p className={styles.userRole}>{user.role}</p>
+                        </div>
+                    </div>
+                    {menuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
-                <ChevronDown size={16} />
             </div>
         </div>
     );
