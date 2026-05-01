@@ -11,13 +11,13 @@ export default function CalendarPage() {
             <SideBar />
             <main className={styles.main}>
                 <Header
-                title="Calendar"
-                action={
-                    <Button onClick={() => console.log("New Booking")} className={styles.btnNewBooking}>
-                        <Plus size={18} strokeWidth={3.5}/>
-                        New Booking
-                    </Button>
-                }/>
+                    title="Calendar"
+                    action={
+                        <Button onClick={() => console.log("New Booking")} className={styles.btnNewBooking}>
+                            <Plus size={18} strokeWidth={3.5} />
+                            New Booking
+                        </Button>
+                    } />
                 <h1>Calendar</h1>
             </main>
         </div>
