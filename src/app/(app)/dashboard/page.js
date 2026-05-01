@@ -7,18 +7,26 @@ import { Header } from "@/components/Header/Header";
 import styles from './dashboard.module.css';
 
 export default function Dashboard() {
+    const today = new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
     return (
         <div className={styles.container}>
             <SideBar />
             <main className={styles.main}>
                 <Header
-                title="Dashboard"
-                action={
-                    <Button onClick={() => console.log("New Booking")} className={styles.btnNewBooking}>
-                        <Plus size={18} strokeWidth={3.5}/>
-                        New Booking
-                    </Button>
-                }/>
+                    title="Dashboard"
+                    subtitle={today}
+                    action={
+                        <Button onClick={() => console.log("New Booking")} className={styles.btnNewBooking}>
+                            <Plus size={18} strokeWidth={3.5} />
+                            New Booking
+                        </Button>
+                    } />
                 <h1>Dashboard</h1>
             </main>
         </div>
