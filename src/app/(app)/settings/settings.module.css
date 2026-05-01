@@ -1,1 +1,23 @@
-/*registrando arquivo de css*/
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.btnCollaborator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem !important;
+    cursor: pointer;
+}
