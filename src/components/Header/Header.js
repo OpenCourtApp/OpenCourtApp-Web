@@ -1,16 +1,20 @@
 'use client';
 
 import styles from './header.module.css';
-import { usePathname } from 'next/navigation';
 
-export default function Header() {
-    const pathname = usePathname();
-    // Pego o nome da página atual a partir do pathname
-    const pageName = pathname.split('/').filter(Boolean).slice(-1)[0] || 'dashboard';
+export default function Header({ title, children, action }) {
 
     return (
         <header className={styles.header}>
-            <h1 className={styles.title}>{pageName.charAt(0).toUpperCase() + pageName.slice(1)}</h1>
+            <div className={styles.headerTitle}>
+                <h1 className={styles.title}>{title}</h1>
+            </div>
+            <div className={styles.headerContent}>
+                {children}
+            </div>
+            <div className={styles.btnAction}>
+                {action}
+            </div>
         </header>
     );
 }
