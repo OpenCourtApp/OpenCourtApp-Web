@@ -18,20 +18,19 @@ export default function LoginScreen() {
         setFormData({...formData, [name]: value});
     };
 
-    useEffect(() => {
-        // Simula um carregamento de autenticação
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (!formData.email || !formData.password) {
+            alert('Please fill in all fields');
+            return;
+        }
+        // Simula um processo de autenticação
+        setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
+            router.push('/dashboard');
         }, 1000);
-    }, []);
-
-    if (isLoading) {
-        return (
-            <div className={styles.loadingContainer}>
-                <p className={styles.loadingText}>Loading...</p>
-            </div>
-        );
-    }
+    };
 
     return (
         <div className={styles.container}>
@@ -75,7 +74,7 @@ export default function LoginScreen() {
                         value={formData.password}
                         onChange={handleInputChange}
                     />
-                    <Button type="submit">Sign In</Button>
+                    <Button type="submit" onClick={handleLogin}>Sign In</Button>
                     <p className={styles.signupText}>Don't have an account?<a href="/register" className={styles.signupLink}>Register Here</a></p>
                 </form>
             </main>
