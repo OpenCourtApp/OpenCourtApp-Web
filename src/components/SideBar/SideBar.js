@@ -52,17 +52,18 @@ export function SideBar() {
                                 <p className={styles.dropdownEmail}>{user.email}</p>
                             </div>
                         </div>
-                        <div className={styles.dropdownItem}>
-                            <span className={styles.dropdownItemLeft}>
+                        <Link href="/settings" className={styles.dropdownItem}>
+                            <div className={styles.dropdownItemLeft}>
                                 <User size={15} />
                                 Settings
-                            </span>
+                            </div>
                             <ChevronRight size={14} />
-                        </div>
-                        <div className={styles.dropdownLogout}>
+                        </Link>
+                        <div className={styles.dropDownDivider} />
+                        <Link href="/login" className={styles.dropdownLogout}>
                             <LogOut size={15} />
                             Log out
-                        </div>
+                        </Link>
                     </div>
                 )}
 
