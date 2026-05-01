@@ -3,7 +3,7 @@
 import { SideBar } from "@/components/SideBar/SideBar";
 import { Plus } from 'lucide-react';
 import { Button } from "@/components/Button/Button";
-import Header from "@/components/Header/Header";
+import { Header } from "@/components/Header/Header";
 import styles from './calendar.module.css';
 export default function CalendarPage() {
     return (

@@ -2,7 +2,7 @@
 
 import styles from './header.module.css';
 
-export default function Header({ title, children, action }) {
+export function Header({ title, children, action }) {
 
     return (
         <header className={styles.header}>

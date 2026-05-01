@@ -2,7 +2,7 @@
 
 import { SideBar } from "@/components/SideBar/SideBar";
 import { Plus } from 'lucide-react';
-import Header from "@/components/Header/Header";
+import { Header } from "@/components/Header/Header";
 import { Button } from "@/components/Button/Button";
 import styles from './collaborators.module.css';
 export default function CollaboratorsPage() {
