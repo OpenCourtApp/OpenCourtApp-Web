@@ -5,6 +5,7 @@ import { Plus } from 'lucide-react';
 import { Header } from "@/components/Header/Header";
 import { Button } from "@/components/Button/Button";
 import styles from './collaborators.module.css';
+
 export default function CollaboratorsPage() {
     const collaborators = [
         { name: 'Ana Ferreira', role: 'Teacher' },
