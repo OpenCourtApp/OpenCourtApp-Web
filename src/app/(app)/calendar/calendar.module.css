@@ -8,6 +8,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    background-color: var(--page);
 }
 
 .btnNewBooking {
@@ -19,4 +20,8 @@
     border: none;
     padding: 0.5rem 1rem !important;
     cursor: pointer;
+}
+
+.btnNewBooking:hover {
+    background-color: var(--text-hover);
 }
