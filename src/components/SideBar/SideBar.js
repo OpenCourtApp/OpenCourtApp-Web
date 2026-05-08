@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Grid, Calendar, Users, ChevronDown, ChevronUp, User, LogOut, ChevronRight } from 'react-feather';
+import { motion, AnimatePresence } from "framer-motion";
 
 const user = {
     name: 'Ana Ferreira',
@@ -28,7 +29,7 @@ export function SideBar() {
         `${styles.navItem} ${pathname === path ? styles.active : ''}`;
 
     return (
-        <div className={styles.container}>
+        <aside className={styles.container}>
             <div className={styles.top}>
                 <img src="/teste-logomarca-black.svg" alt="Logomarca" className={styles.logomarca} />
             </div>
@@ -43,29 +44,36 @@ export function SideBar() {
             </nav>
 
             <div className={styles.menuWrapper}>
-                {menuOpen && (
-                    <div className={styles.dropdownMenu}>
-                        <div className={styles.dropdownUser}>
-                            <div className={styles.avatar}>{initials}</div>
-                            <div>
-                                <p className={styles.userName}>{user.name}</p>
-                                <p className={styles.dropdownEmail}>{user.email}</p>
+                <AnimatePresence>
+                    {menuOpen && (
+                        <motion.div
+                            className={styles.dropdownMenu}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                        >
+                            <div className={styles.dropdownUser}>
+                                <div className={styles.avatar}>{initials}</div>
+                                <div>
+                                    <p className={styles.userName}>{user.name}</p>
+                                    <p className={styles.dropdownEmail}>{user.email}</p>
+                                </div>
                             </div>
-                        </div>
-                        <Link href="/settings" className={styles.dropdownItem}>
-                            <div className={styles.dropdownItemLeft}>
-                                <User size={15} />
-                                Settings
-                            </div>
-                            <ChevronRight size={14} />
-                        </Link>
-                        <div className={styles.dropDownDivider} />
-                        <Link href="/login" className={styles.dropdownLogout}>
-                            <LogOut size={15} />
-                            Log out
-                        </Link>
-                    </div>
-                )}
+                            <Link href="/settings" className={styles.dropdownItem}>
+                                <div className={styles.dropdownItemLeft}>
+                                    <User size={15} />
+                                    Settings
+                                </div>
+                                <ChevronRight size={14} />
+                            </Link>
+                            <div className={styles.dropDownDivider} />
+                            <Link href="/login" className={styles.dropdownLogout}>
+                                <LogOut size={15} />
+                                Log out
+                            </Link>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 <div className={styles.footer} onClick={() => setMenuOpen(!menuOpen)}>
                     <div className={styles.userInfo}>
@@ -78,6 +86,6 @@ export function SideBar() {
                     {menuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
             </div>
-        </div>
+        </aside>
     );
 }
