@@ -1,0 +1,27 @@
+/* Fundo escuro que cobre a tela toda */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Caixa do modal centralizada */
+.modalContent {
+    flex: 1;
+    justify-content: space-between;
+    background-color: white; 
+    color: #333;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 40rem;
+    min-height: 20rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
