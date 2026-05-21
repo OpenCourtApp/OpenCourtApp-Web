@@ -4,7 +4,9 @@ import { SideBar } from "@/components/SideBar/SideBar";
 import { Plus } from 'lucide-react';
 import { Header } from "@/components/Header/Header";
 import { Button } from "@/components/Button/Button";
+import { Modal } from "@/components/Modal/Modal";
 import { Edit2, X } from 'react-feather';
+import { useState } from "react";
 import styles from './collaborators.module.css';
 
 export default function CollaboratorsPage() {
@@ -26,6 +28,8 @@ export default function CollaboratorsPage() {
 
     const initials = (name) =>
         name.split(' ').map(n => n[0]).join('');
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
     return (
         <div className={styles.container}>
             <SideBar />
@@ -34,7 +38,7 @@ export default function CollaboratorsPage() {
                     title="Collaborators"
                     subtitle={`${collaborators.length} authorized users`}
                     action={
-                        <Button onClick={() => alert("Add Collaborator")} className={styles.btnCollaborator}>
+                        <Button onClick={() => setIsModalOpen(true)} className={styles.btnCollaborator}>
                             <Plus size={18} strokeWidth={3.5} />
                             Add Collaborator
                         </Button>
@@ -83,6 +87,10 @@ export default function CollaboratorsPage() {
                     </table>
                 </div>
             </main>
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <h1 className={styles.titleModal}>New Collaborator</h1>
+                <p>Olá! Modifique este conteúdo com o formulário que desejar.</p>
+            </Modal>
         </div>
     )
 }

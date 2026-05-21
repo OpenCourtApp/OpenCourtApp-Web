@@ -25,3 +25,7 @@
 .btnNewBooking:hover {
     background-color: var(--text-hover);
 }
+
+.titleModal{
+    font-size: 18;
+}
