@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react';
 import { Header } from "@/components/Header/Header";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
-import { Edit2, X } from 'react-feather';
+import { Edit2, X, Calendar, Clock } from 'react-feather';
 import { useState } from "react";
 import styles from './collaborators.module.css';
 
@@ -87,9 +87,15 @@ export default function CollaboratorsPage() {
                     </table>
                 </div>
             </main>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <h1 className={styles.titleModal}>New Collaborator</h1>
-                <p>Olá! Modifique este conteúdo com o formulário que desejar.</p>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                title="New Collaborator"
+                subtitle="Add a new authorized user"
+                onConfirm={() => setIsModalOpen(false)}
+                confirmLabel="Save Collaborator"
+            >
+            
             </Modal>
         </div>
     )

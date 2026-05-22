@@ -26,6 +26,94 @@
     background-color: var(--text-hover);
 }
 
-.titleModal{
-    font-size: 18;
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
 }
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.optional {
+    font-weight: 400;
+    color: #aaa;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #111;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+}
+.input:focus { border-color: #999; }
+
+.input[type="date"]::-webkit-calendar-picker-indicator,
+.input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.textarea {
+    resize: none;
+    height: 5.5rem;
+}
+
+.inputIcon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    color: #888;
+}
+
+.inputIcon .input {
+    border: none;
+    padding: 0;
+    flex: 1;
+}
+
+.inputIcon .input:focus { border: none; }
+
+.cancelBtn {
+    padding: 0.6rem 1.7rem;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: #444;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.cancelBtn:hover { background: #f5f5f5; }
+
+.confirmBtn {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.confirmBtn:hover { background: #333; }

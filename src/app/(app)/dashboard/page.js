@@ -1,12 +1,17 @@
 'use client'
 
 import { SideBar } from "@/components/SideBar/SideBar";
-import { Plus } from 'lucide-react';
-import { Button } from "@/components/Button/Button";
+import { Modal } from "@/components/Modal/Modal";
 import { Header } from "@/components/Header/Header";
+import { Button } from "@/components/Button/Button";
+import { Plus } from 'lucide-react';
+import { Calendar, Clock } from 'react-feather';
+import { useState } from "react";
 import styles from './dashboard.module.css';
 
 export default function Dashboard() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const today = new Date().toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -22,13 +27,53 @@ export default function Dashboard() {
                     title="Dashboard"
                     subtitle={today}
                     action={
-                        <Button onClick={() => console.log("New Booking")} className={styles.btnNewBooking}>
+                        <Button onClick={() => setIsModalOpen(true)} className={styles.btnNewBooking}>
                             <Plus size={18} strokeWidth={3.5} />
                             New Booking
                         </Button>
                     } />
                 <h1>Dashboard</h1>
             </main>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                title="New Booking"
+                subtitle="Reserve a court time slot"
+                onConfirm={() => setIsModalOpen(false)}
+                confirmLabel="Save Booking"
+            >
+                <div className={styles.fieldGroup}>
+                    <label className={styles.label}>Event title</label>
+                    <input placeholder="Basketball Practice" className={styles.input} />
+                </div>
+
+                <div className={styles.row}>
+                    <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Date</label>
+                        <div className={styles.inputIcon}>
+                            <Calendar size={15} />
+                            <input type="date" className={styles.input} />
+                        </div>
+                    </div>
+                    <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Time</label>
+                        <div className={styles.inputIcon}>
+                            <Clock size={15} />
+                            <input type="time" className={styles.input} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.fieldGroup}>
+                    <label className={styles.label}>
+                        Notes <span className={styles.optional}>(optional)</span>
+                    </label>
+                    <textarea
+                        placeholder="Add relevant details about this booking..."
+                        className={`${styles.input} ${styles.textarea}`}
+                    />
+                </div>
+            </Modal>
         </div>
     );
 }
