@@ -14,7 +14,12 @@ export default function SettingsPage() {
                     title="Settings"
                     subtitle="Manage your account"
                 />
-                <h1>Settings</h1>
+                <div className={styles.modalContainer}>
+                    <div className={styles.titleContainer}>
+                        <h1 className={styles.titleProfile}>Profile information</h1>
+                    </div>
+
+                </div>
             </main>
         </div>
     )

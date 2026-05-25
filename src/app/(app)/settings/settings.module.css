@@ -3,15 +3,36 @@
     display: flex;
     height: 100vh;
     width: 100vw;
+    background-color: var(--card);
 }
 
 .main {
     display: flex;
     flex: 1;
     flex-direction: column;
+    background-color: var(--page);
 }
 
-.btnCollaborator {
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 50vh;
+    width: 50vw;
+    background-color: var(--card);
+    border-radius: 16px;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.titleProfile{
+    font-weight: 700;
+    font-size: 20px;
+    border-width: 0 0 1 0;
+    border-color: var(--border);
+}
+
+.btnSaveChanges {
     display: flex;
     flex-direction: row;
     align-items: center;
