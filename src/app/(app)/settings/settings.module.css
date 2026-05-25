@@ -1,4 +1,3 @@
-
 .container {
     display: flex;
     height: 100vh;
@@ -13,11 +12,11 @@
     background-color: var(--page);
 }
 
-.modalContainer{
+.modalContainer {
     display: flex;
     flex-direction: column;
     align-self: center;
-    height: 50vh;
+    height: 60vh;
     width: 50vw;
     background-color: var(--card);
     border-radius: 16px;
@@ -25,7 +24,41 @@
     padding: 2rem;
 }
 
-.titleProfile{
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 15rem;
+}
+
+.rowInput {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem; 
+    margin-bottom: 1rem;   
+}
+
+.label {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--active-accent);
+}
+
+.input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--placeholder);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+    background-color: var(--page);
+}
+.input:focus { border-color: #999; }
+
+.titleProfile {
     font-weight: 700;
     font-size: 20px;
     border-width: 0 0 1 0;
@@ -34,11 +67,12 @@
 
 .btnSaveChanges {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 13vw;
     gap: 0.5rem;
     color: white;
-    border: none;
-    padding: 0.5rem 1rem !important;
+    padding: 0.7rem 1rem !important;
     cursor: pointer;
 }
