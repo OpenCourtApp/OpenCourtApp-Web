@@ -5,19 +5,12 @@ import { Plus } from 'lucide-react';
 import { Header } from "@/components/Header/Header";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
-import { Edit2, X, Calendar, Clock } from 'react-feather';
+import { Edit2, X, User, Users, ArrowDown } from 'react-feather';
 import { useState } from "react";
+import { collaborators } from "@/utils/mockData";
 import styles from './collaborators.module.css';
 
 export default function CollaboratorsPage() {
-    const collaborators = [
-        { id: 1, name: 'Maria Santos', role: 'Principal', email: 'm.santos@escola.edu' },
-        { id: 2, name: 'Ana Ferreira', role: 'Teacher', email: 'a.ferreira@escola.edu' },
-        { id: 3, name: 'Carlos Lima', role: 'Teacher', email: 'c.lima@escola.edu' },
-        { id: 4, name: 'Rafael Alves', role: 'Student Rep.', email: 'r.alves@escola.edu' },
-        { id: 5, name: 'Julia Ramos', role: 'Teacher', email: 'j.ramos@escola.edu' },
-        { id: 6, name: 'Pedro Costa', role: 'Teacher', email: 'p.costa@escola.edu' },
-    ];
 
     const badgeClass = (role) => {
         if (role === 'Principal') return `${styles.badge} ${styles.badgePrincipal}`;
@@ -29,7 +22,14 @@ export default function CollaboratorsPage() {
     const initials = (name) =>
         name.split(' ').map(n => n[0]).join('');
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({ ...prevData, [name]: value }));
+    }
+
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [formData, setFormData] = useState({ schoolRole: '' });
+
     return (
         <div className={styles.container}>
             <SideBar />
@@ -95,7 +95,57 @@ export default function CollaboratorsPage() {
                 onConfirm={() => setIsModalOpen(false)}
                 confirmLabel="Save Collaborator"
             >
-            
+
+                <div className={styles.row}>
+                    <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Name</label>
+                        <div className={styles.inputIcon}>
+                            <User size={15} />
+                            <input
+                                type="text"
+                                className={styles.input}
+                                defaultValue={''} 
+                                placeholder="John"
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Surname</label>
+                        <div className={styles.inputIcon}>
+                            <Users size={15} />
+                            <input
+                                type="text"
+                                className={styles.input}
+                                defaultValue={''} 
+                                placeholder="Doe"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.fieldGroup}>
+                    <label className={styles.label}>Email</label>
+                    <input
+                        type="email"
+                        placeholder="john.doe@example.com"
+                        className={styles.input}
+                        defaultValue={''}
+                    />
+                </div>
+
+                <div>
+                    <label className={styles.label}>School role</label>
+                    <div className={styles.selectWrapper}>
+                        <select className={styles.select} defaultValue="" name="schoolRole" onChange={handleInputChange}>
+                            <option value="" disabled>Select your role</option>
+                            <option value="student-council">Grêmio Estudantil</option>
+                            <option value="teacher">Professor</option>
+                            <option value="coordination">Coordenação</option>
+                        </select>
+                        <ArrowDown size={15} className={styles.selectIcon} />
+                    </div>
+                </div>
+
             </Modal>
         </div>
     )

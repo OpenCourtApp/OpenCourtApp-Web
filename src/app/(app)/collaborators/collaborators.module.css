@@ -55,11 +55,11 @@
 }
 
 .table th:first-child {
-    border-radius: 12px 0 0 0; /* arredonda canto superior esquerdo */
+    border-radius: 12px 0 0 0; 
 }
 
 .table th:last-child {
-    border-radius: 0 12px 0 0; /* arredonda canto superior direito */
+    border-radius: 0 12px 0 0; 
 }
 
 .table td {
@@ -116,7 +116,7 @@
     border: none;
     cursor: pointer;
     color: var(--secondary-text) !important;
-    background-color: var(--page);
+    background-color: var(--page) !important;
     border: 1px solid var(--border);
     padding: 0.25rem;
     display: flex;
@@ -133,8 +133,8 @@
     width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
-    color: #e53e3e;
-    background-color: rgba(252, 31, 31, 0.068);
+    color: #e53e3e !important;
+    background-color: rgba(252, 31, 31, 0.068) !important;
     border: 1px solid rgba(229, 62, 62, 0.226);
     padding: 0.25rem;
     display: flex;
@@ -159,4 +159,97 @@
     font-size: 0.75rem;
     font-weight: 700;
     flex-shrink: 0;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.optional {
+    font-weight: 400;
+    color: #aaa;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #111;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+    font-family: inherit;
+    background-color: var(--page);
+}
+.input:focus { border-color: #999; }
+
+.input[type="date"]::-webkit-calendar-picker-indicator,
+.input[type="time"]::-webkit-calendar-picker-indicator { display: none; }
+
+.textarea {
+    resize: none;
+    height: 5.5rem;
+}
+
+.inputIcon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    color: #888;
+    background-color: var(--page);
+}
+
+.inputIcon .input {
+    border: none;
+    padding: 0;
+    flex: 1;
+    background: transparent;
+}
+.inputIcon .input:focus { border: none; }
+
+.selectWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.selectIcon {
+    position: absolute;
+    right: 0.85rem;
+    pointer-events: none; /* cliques passam para o select por baixo */
+    color: var(--secondary-text);
+}
+
+.select {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--page);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box;
 }
