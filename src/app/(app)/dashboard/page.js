@@ -7,6 +7,7 @@ import { Button } from "@/components/Button/Button";
 import { Plus } from 'lucide-react';
 import { Calendar, Clock } from 'react-feather';
 import { useState } from "react";
+import { weekData, upcomingEvents } from "@/utils/mockData";
 import styles from './dashboard.module.css';
 
 export default function Dashboard() {
@@ -31,9 +32,102 @@ export default function Dashboard() {
                             <Plus size={18} strokeWidth={3.5} />
                             New Booking
                         </Button>
-                    } />
-                <h1>Dashboard</h1>
+                    }
+                />
+
+                <div className={styles.content}>
+
+                    {/* Cards de estatísticas */}
+                    <div className={styles.statsRow}>
+
+                        {/* Status da quadra */}
+                        <div className={`${styles.card} ${styles.cardCourt}`}>
+                            <div className={styles.cardTopRow}>
+                                <span className={styles.cardLabel}>COURT STATUS</span>
+                                <span className={styles.statusBadge}>
+                                    <span className={styles.statusDot} />
+                                    In use
+                                </span>
+                            </div>
+                            <p className={styles.courtTitle}>Basketball Practice</p>
+                            <p className={styles.courtSub}>Booked by Prof. Carlos Lima</p>
+                            <div className={styles.courtTime}>
+                                <Clock size={13} />
+                                <span>11:00 – 12:30 · ends in 47 min</span>
+                            </div>
+                        </div>
+
+                        {/* Reservas de hoje */}
+                        <div className={`${styles.card} ${styles.cardStat}`}>
+                            <span className={styles.cardLabel}>TODAY'S BOOKINGS</span>
+                            <p className={styles.statNumber}>4</p>
+                            <div className={styles.statBar}>
+                                <div className={styles.statBarFill} style={{ width: '40%' }} />
+                            </div>
+                            <span className={styles.statHint}>+1 vs yesterday</span>
+                        </div>
+
+                        {/* Horários disponíveis */}
+                        <div className={`${styles.card} ${styles.cardStat}`}>
+                            <span className={styles.cardLabel}>AVAILABLE SLOTS</span>
+                            <p className={styles.statNumber}>6</p>
+                            <div className={styles.statBar}>
+                                <div className={styles.statBarFill} style={{ width: '60%' }} />
+                            </div>
+                            <span className={styles.statHint}>of 10 total</span>
+                        </div>
+
+                    </div>
+
+                    {/* Gráfico + próximos eventos */}
+                    <div className={styles.bottomRow}>
+
+                        {/* Gráfico semanal */}
+                        <div className={`${styles.card} ${styles.cardChart}`}>
+                            <div className={styles.chartHeader}>
+                                <div>
+                                    <p className={styles.chartTitle}>Weekly court usage</p>
+                                    <p className={styles.chartSub}>Mar 10 – 16, 2026</p>
+                                </div>
+                                <button className={styles.weekBtn}>This week</button>
+                            </div>
+                            <div className={styles.chartArea}>
+                                {weekData.map((data) => (
+                                    <div key={data.day} className={styles.barGroup}>
+                                        <div className={styles.barWrapper}>
+                                            <div
+                                                className={`${styles.bar} ${data.active ? styles.barActive : ''}`}
+                                                style={{ height: `${data.value}%` }}
+                                            />
+                                        </div>
+                                        <span className={`${styles.dayLabel} ${data.active ? styles.dayLabelActive : ''}`}>
+                                            {data.day}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Próximos eventos de hoje */}
+                        <div className={`${styles.card} ${styles.cardUpcoming}`}>
+                            <p className={styles.chartTitle}>Upcoming today</p>
+                            <div className={styles.eventList}>
+                                {upcomingEvents.map((events) => (
+                                    <div
+                                        key={events.title}
+                                        className={`${styles.eventItem} ${events.active ? styles.eventItemActive : styles.eventItemInactive}`}
+                                    >
+                                        <p className={styles.eventTitle}>{events.title}</p>
+                                        <p className={styles.eventMeta}>{events.time} · {events.prof}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
+
+            {/* Modal */}
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
