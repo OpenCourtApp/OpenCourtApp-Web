@@ -38,7 +38,6 @@ export default function CalendarPage() {
                     <label className={styles.label}>Event title</label>
                     <input placeholder="Basketball Practice" className={styles.input} />
                 </div>
-
                 <div className={styles.row}>
                     <div className={styles.fieldGroup}>
                         <label className={styles.label}>Date</label>
