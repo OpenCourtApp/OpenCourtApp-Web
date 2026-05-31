@@ -3,6 +3,7 @@
 import styles from './login.module.css';
 import { Button } from '../../../components/Button/Button';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function LoginScreen() {
@@ -36,7 +37,7 @@ export default function LoginScreen() {
         <div className={styles.container}>
             {/* parte esquerda */}
             <aside className={styles.aside}>
-                <img src="/teste-logomarca-white.svg" alt="Logomarca" className={styles.logomarca} />
+                <Image src="/teste-logomarca-white.svg" alt="Logomarca" className={styles.logomarca} width={200} height={200} />
                 <div className={styles.ellipse}>
                     <p className={styles.impactPhrase}>Schedule courts. Eliminate confusion.</p>
                     <p className={styles.description}>A centralized booking platform for schools. Know exactly who reserved the court and when — with zero overlap.</p>
