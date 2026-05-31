@@ -10,69 +10,296 @@
     flex: 1;
     flex-direction: column;
     background-color: var(--page);
+    overflow-y: auto;
 }
 
-.modalContainer {
+.content {
     display: flex;
     flex-direction: column;
-    align-self: center;
-    height: 60vh;
-    width: 50vw;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 680px;
     background-color: var(--card);
     border-radius: 16px;
-    margin-top: 2rem;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+}
+
+.cardSubtitle {
+    font-size: 0.82rem;
+    color: var(--secondary-text);
+    margin-top: -0.25rem;
+    margin-bottom: 0.75rem;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    gap: 15rem;
+    gap: 1.25rem;
 }
 
-.rowInput {
+.field {
     display: flex;
-    flex-direction: row;
-    gap: 3rem; 
-    margin-bottom: 1rem;   
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    margin-bottom: 0.5rem;
 }
 
 .label {
-    margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--active-accent);
+}
+
+.labelMeta {
+    font-weight: 400;
+    color: var(--secondary-text);
+    font-size: 0.82rem;
 }
 
 .input {
     width: 100%;
     padding: 0.65rem 0.85rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 8px;
-    font-size: 0.9rem;
-    color: var(--placeholder);
+    font-size: 0.875rem;
+    color: var(--text);
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.15s;
     background-color: var(--page);
+    font-family: inherit;
 }
-.input:focus { border-color: #999; }
 
-.titleProfile {
-    font-weight: 700;
-    font-size: 20px;
-    border-width: 0 0 1 0;
-    border-color: var(--border);
+.inputFull {
+    composes: input;
+    width: 100%;
+}
+
+.input:focus,
+.inputFull:focus {
+    border-color: #999;
+}
+
+.saveRow {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
 }
 
 .btnSaveChanges {
+    background-color: #111827;
+    color: white;
+    padding: 0.65rem 1.25rem !important;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.tokenInputWrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    width: 13vw;
     gap: 0.5rem;
-    color: white;
-    padding: 0.7rem 1rem !important;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    background-color: var(--page);
+    margin-bottom: 0.5rem;
+}
+
+.tokenIcon {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+.inputToken {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.875rem;
+    color: var(--secondary-text);
+    letter-spacing: 0.05em;
+    flex: 1;
+    cursor: default;
+    font-family: inherit;
+}
+
+.tokenWarning {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.82rem;
+    color: #92400e;
+}
+
+.warningIcon {
+    color: #d97706;
+    font-size: 0.9rem;
+}
+
+.themeOptions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.themeOption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     cursor: pointer;
+    flex: 1;
+    max-width: 140px;
+}
+
+.themePreview {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    transition: border-color 0.15s;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+}
+
+.themeOptionActive .themePreview {
+    border-color: #111827;
+}
+
+.themePreview[data-theme="light"] {
+    background: #f5f6f8;
+}
+.themePreview[data-theme="light"] .themePreviewBar {
+    height: 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8eaed;
+}
+.themePreview[data-theme="light"] .themePreviewContent {
+    flex: 1;
+    background: #f5f6f8;
+}
+
+.themePreview[data-theme="dark"] {
+    background: #1f2937;
+}
+.themePreview[data-theme="dark"] .themePreviewBar {
+    height: 20px;
+    background: #111827;
+    border-bottom: 1px solid #374151;
+}
+.themePreview[data-theme="dark"] .themePreviewContent {
+    flex: 1;
+    background: #1f2937;
+}
+
+.themePreview[data-theme="system"] {
+    background: linear-gradient(to right, #f5f6f8 50%, #1f2937 50%);
+}
+.themePreview[data-theme="system"] .themePreviewBar {
+    height: 20px;
+    background: linear-gradient(to right, #ffffff 50%, #111827 50%);
+    border-bottom: 1px solid #e8eaed;
+}
+.themePreview[data-theme="system"] .themePreviewContent {
+    flex: 1;
+}
+
+.themeRadioRow {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.radioInput {
+    accent-color: #111827;
+    cursor: pointer;
+}
+
+.themeLabel {
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+/* Notifications */
+.notifItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.notifTitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.notifDesc {
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    margin-top: 0.15rem;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--divider);
+    margin: 0.25rem 0;
+}
+
+.toggle {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 999px;
+    background-color: #d1d5db;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.toggleOn {
+    background-color: #111827;
+}
+
+.toggleThumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.2s;
+    display: block;
+}
+
+.toggleOn .toggleThumb {
+    transform: translateX(20px);
 }
