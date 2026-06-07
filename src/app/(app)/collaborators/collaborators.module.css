@@ -13,13 +13,14 @@
 
 .btnCollaborator {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
     color: white;
     border: none;
-    padding: 0.5rem 1rem !important;
+    padding: 0.6rem 1.1rem !important;
     cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500 !important;
 }
 
 .btnCollaborator:hover {

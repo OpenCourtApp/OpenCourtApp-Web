@@ -112,13 +112,13 @@ export default function Dashboard() {
                         <div className={`${styles.card} ${styles.cardUpcoming}`}>
                             <p className={styles.chartTitle}>Upcoming today</p>
                             <div className={styles.eventList}>
-                                {upcomingEvents.map((events) => (
+                                {upcomingEvents.map((event) => (
                                     <div
-                                        key={events.title}
-                                        className={`${styles.eventItem} ${events.active ? styles.eventItemActive : styles.eventItemInactive}`}
+                                        key={event.id}
+                                        className={`${styles.eventItem} ${event.active ? styles.eventItemActive : styles.eventItemInactive}`}
                                     >
-                                        <p className={styles.eventTitle}>{events.title}</p>
-                                        <p className={styles.eventMeta}>{events.time} · {events.prof}</p>
+                                        <p className={styles.eventTitle}>{event.title}</p>
+                                        <p className={styles.eventMeta}>{event.time} · {event.prof}</p>
                                     </div>
                                 ))}
                             </div>

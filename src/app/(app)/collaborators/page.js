@@ -20,10 +20,12 @@ export default function CollaboratorsPage() {
     };
 
     const initials = (name) =>
+        // split separa o nome e sobrenome, map pega a primeira letra de cada um e join junta tudo em uma string
         name.split(' ').map(n => n[0]).join('');
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        // o [name] é uma forma de usar valores dinamicos para servir de chave ao valor que sera inserido
         setFormData(prevData => ({ ...prevData, [name]: value }));
     }
 
@@ -104,7 +106,8 @@ export default function CollaboratorsPage() {
                             <input
                                 type="text"
                                 className={styles.input}
-                                defaultValue={''} 
+                                value={formData.name}
+                                onChange={handleInputChange}
                                 placeholder="John"
                             />
                         </div>
@@ -116,7 +119,8 @@ export default function CollaboratorsPage() {
                             <input
                                 type="text"
                                 className={styles.input}
-                                defaultValue={''} 
+                                value={formData.surname}
+                                onChange={handleInputChange}
                                 placeholder="Doe"
                             />
                         </div>
@@ -129,7 +133,8 @@ export default function CollaboratorsPage() {
                         type="email"
                         placeholder="john.doe@example.com"
                         className={styles.input}
-                        defaultValue={''}
+                        value={formData.email}
+                        onChange={handleInputChange}
                     />
                 </div>
 

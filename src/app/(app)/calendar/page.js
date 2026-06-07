@@ -39,6 +39,7 @@ export default function CalendarPage() {
     } = useCalendar(INITIAL_EVENTS);
 
     const today = new Date();
+    // serve para zerar o tempo, assim a comparação de datas só leva em conta o dia, mês e ano
     today.setHours(0, 0, 0, 0);
 
     return (
@@ -98,6 +99,9 @@ export default function CalendarPage() {
                             </div>
 
                             {/* Colunas dos dias */}
+                            {/* Preciso do '_' pois ele significa 'não usado' 
+                            (em um .map(), ele tem como primeiro parâmetro um valor a ser passado, que nao é interessante para nós ) 
+                            */}
                             {DAY_COLS.map((_, colIdx) => {
                                 const colEvents = events.filter(event => event.dayOffset === colIdx);
                                 const columnDate = addDays(weekStart, colIdx);
@@ -133,6 +137,7 @@ export default function CalendarPage() {
             </main>
 
             {/* Popover */}
+            {/* O popover é a caixinha que aparece quando clicamos em um evento, mostrando os detalhes e opções de edição/exclusão */}
             {popover && (
                 <div
                     ref={popoverRef}
