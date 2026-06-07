@@ -12,6 +12,11 @@
   --border: #e8eaed;
   --divider: #e5e7eb;
   --placeholder: #9ca3af;
+  --danger: #b91c1c;
+  --danger-light: #fee2e2;  
+  --danger-muted: #fef2f2;
+  --danger-border: #fecaca;
+  --danger-hover: #dc2626d7;
 }
 
 @theme inline {
