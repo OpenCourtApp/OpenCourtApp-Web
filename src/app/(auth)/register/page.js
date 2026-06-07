@@ -2,6 +2,7 @@
 
 import styles from './register.module.css';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { Button } from '../../../components/Button/Button';
 import { Lock } from 'react-feather'
 import { useState } from 'react';
@@ -36,7 +37,7 @@ export default function RegisterScreen() {
     return (
         <div className={styles.container}>
             <div className={styles.containerModal}>
-                <img src="/teste-logomarca-black.svg" alt="Logomarca" className={styles.logomarca} />
+                <Image src="/teste-logomarca-black.svg" alt="Logomarca" className={styles.logomarca} width={200} height={200} />
 
                 <h1 className={styles.title}>Create your account</h1>
                 <p className={styles.subtitle}>Fill in your details and authorization token</p>
