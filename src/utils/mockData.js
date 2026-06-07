@@ -40,10 +40,10 @@ export const weekData = [
 ];
 
 export const upcomingEvents = [
-    { title: 'PE Class – Volleyball', time: '08:00 – 09:30', prof: 'Prof. Lima' },
-    { title: 'Basketball Practice', time: '11:00 – 12:30', prof: 'Prof. Carlos', active: true },
-    { title: 'Futsal Tournament', time: '14:00 – 16:00', prof: 'Prof. Costa' },
-    { title: 'Athletics Warm-Up', time: '16:30 – 17:30', prof: 'Prof. Ramos' },
+    { id: 1, title: 'PE Class – Volleyball', time: '08:00 – 09:30', prof: 'Prof. Lima' },
+    { id: 2, title: 'Basketball Practice', time: '11:00 – 12:30', prof: 'Prof. Carlos', active: true },
+    { id: 3, title: 'Futsal Tournament', time: '14:00 – 16:00', prof: 'Prof. Costa' },
+    { id: 4, title: 'Athletics Warm-Up', time: '16:30 – 17:30', prof: 'Prof. Ramos' },
 ];
 
 // ─── Colaboradores: dados mockados ────────────────────────────────────────────
