@@ -20,32 +20,54 @@ export function useCalendar(initialEvents) {
         return () => document.removeEventListener('mousedown', closeOnOutsideClick);
     }, []);
 
-    function closePopover() { setPopover(null); }
-    function goToPrevWeek() { setWeekStart(c => addDays(c, -7)); closePopover(); }
-    function goToNextWeek() { setWeekStart(c => addDays(c,  7)); closePopover(); }
-    function goToCurrentWeek() { setWeekStart(getWeekStart(new Date())); closePopover(); }
+    useEffect(() => {
+        setEvents(initialEvents);
+    }, [initialEvents]);
 
-    function openPopoverForEvent(clickEvent, calendarEvent) {
+    const closePopover = () => setPopover(null);
+
+    const goToPrevWeek = () => {
+        setWeekStart(prev => addDays(prev, -7));
+        closePopover();
+    };
+
+    const goToNextWeek = () => {
+        setWeekStart(prev => addDays(prev, 7));
+        closePopover();
+    };
+
+    const goToCurrentWeek = () => {
+        setWeekStart(getWeekStart(new Date()));
+        closePopover();
+    };
+
+    const openPopoverForEvent = (clickEvent, calendarEvent) => {
         clickEvent.stopPropagation();
         const rect = clickEvent.currentTarget.getBoundingClientRect();
         setPopover({ event: calendarEvent, x: rect.right + 8, y: rect.top });
     }
 
-    function deleteEventById(id) {
+    const deleteEventById = (id) => {
         setEvents(current => current.filter(event => event.id !== id));
         closePopover();
     }
 
-    function openEditModal(event) {
+    const openEditModal = (event) => {
         setEditingEvent(event);
-        setPopover(null);
+        closePopover();
         setIsModalOpen(true);
     }
 
-    function closeModal() {
+    const closeModal = () => {
         setIsModalOpen(false);
         setEditingEvent(null);
     }
+
+    // Ajuda a formatar a data para exibição no popover, mostrando o dia da semana, mês, dia e horário do evento
+    const formatEventPopoverDate = (event) => {
+        const date = addDays(weekStart, event.dayOffset);
+        return `${date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} · ${event.start} – ${event.end}`;
+    };
 
     return {
         weekStart,
@@ -62,5 +84,6 @@ export function useCalendar(initialEvents) {
         openEditModal,
         closeModal,
         closePopover,
+        formatEventPopoverDate,
     };
 }
